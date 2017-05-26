@@ -1,0 +1,7 @@
+
+<a href="#!/dashboard">Dashboard</a>
+<a href="#!/">Logout</a>
+<div ng-init="UC.session()">
+	<button ng-click="UC.logout()">Logout</button>
+	<h1>Welcome {{UC.current_user.username}} </h1>
+</div>

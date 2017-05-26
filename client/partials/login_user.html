@@ -1,0 +1,21 @@
+<div>
+	<h1>Login</h1>
+	<div >
+		<p class="errors" ng-repeat="error in UC.login_errors">{{error}}</p>
+	</div>
+	<form ng-submit="UC.login(UC.loginUser)">
+		<div class="form-group">
+	    	<label for="email">Email address</label>
+	    	<input ng-model="UC.loginUser.email" type="email" class="form-control" id="email" placeholder="Email">
+	  	</div>
+
+	  	<div class="form-group">
+	    	<label for="password">Password</label>
+	    	<input ng-model="UC.loginUser.password" type="password" class="form-control" id="password" placeholder="Password">
+	  	</div>
+
+	  	<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	<a href="#!/">Click here to register</a>
+
+</div>
