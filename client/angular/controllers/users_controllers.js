@@ -42,9 +42,9 @@ app.controller('UsersController', function(UserFactory,$cookies, $location){
 		self.registration_errors = []
 		console.log('newUser:', newUser)
 
-		if(newUser.password != newUser.confirmPassword){
-			self.registration_errors.push("password didn't match")	
-		}
+		// if(newUser.password != newUser.confirmPassword){
+		// 	self.registration_errors.push("password didn't match")	
+		// }
 					
 		UserFactory.create(newUser, function(res){
 			if(res.data.errors){

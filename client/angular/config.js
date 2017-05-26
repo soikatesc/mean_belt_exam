@@ -17,10 +17,18 @@ app.config(function($routeProvider){
 		controller: 'UsersController as UC'
 
 	})
-	.when('/user/:id', {
-		templateUrl: 'partials/user_profile.html',
+	.when('/question/:id', {
+		templateUrl: 'partials/question.html',
 		controller: 'UsersController as UC'
 
+	})
+	.when('/new_question', {
+		templateUrl: 'partials/new_question.html',
+		controller: 'UsersController as UC'
+	})
+	.when('/question/:id/new_answer', {
+		templateUrl: 'partials/new_answer.html',
+		controller: 'UsersController as UC'
 	})
 	.otherwise({
 		redirectTo: '/'

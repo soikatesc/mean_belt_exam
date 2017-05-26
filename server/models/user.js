@@ -1,6 +1,9 @@
 var mongoose = require('mongoose')
 var bcrypt = require('bcryptjs')
 
+var Question = mongoose.model('Question')
+var Answer = mongoose.model('Answer')
+
 var UserSchema = new mongoose.Schema({
 	first_name: {
 		type: String,
@@ -38,6 +41,14 @@ var UserSchema = new mongoose.Schema({
 		required: [true, "password canot be blank"],
 		minlength: [2, "length of password should be greaer then 2"]
 	},
+	questions: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Question'
+	}],
+	answers: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Answer'
+	}],
 
 }, {timestamps: true})
 

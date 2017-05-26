@@ -3,13 +3,37 @@
 	<div class="header">
 		<div class="header-left">
 			<h2 >Dashboard</h2>
-			<h3>Welcome <span id="username">{{UC.current_user.username}}</span></h3>
+			<h3>Welcome <span id="user-name">{{UC.current_user.username}}</span></h3>
 		</div>
 		<div class="header-right">
 			<a href="#" ng-click="UC.logout()">Logout</a>
 			<a href="#!/user/{{UC.current_user._id}}">{{UC.current_user.username}}</a>
 		</div>
 		<hr>
+	</div>
+
+	<div ng-controller="QuestionsController as QC">
+		<a href="#!/new_question">Add a question</a>
+		Search:<input type="text" ng-model="QC.x">
+
+		<div ng-init="QC.index()">
+			<table>
+				<tr>
+					<th>Question</th>
+					<th>Answers</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat="question in QC.questions | filter: QC.x">
+					<td>{{question.question}}</td>
+					<td>{{question.answers.length}}</td>
+					<td><a href="#!/question/{{question._id}}">Show</a> <a href="#!/question/{{question._id}}/new_answer">Answer</a></td>
+				</tr>
+			</table>
+
+
+		</div>
+
+
 	</div>
 
 </div>
