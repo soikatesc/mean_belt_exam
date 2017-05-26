@@ -52,7 +52,7 @@ module.exports = {
 		}).populate({
 			path: 'answers',
 			model: 'Answer',
-			options: { sort: { createdAt: 1 }},
+			options: { sort: { 'likes.count': -1 }},
 			populate: {
 				path: 'user',
 				model: 'User'
