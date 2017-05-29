@@ -48,7 +48,7 @@ var UserSchema = new mongoose.Schema({
 	answers: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Answer'
-	}],
+	}]
 
 }, {timestamps: true})
 

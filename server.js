@@ -1,7 +1,10 @@
 var express = require('express')
 var bp = require('body-parser')
+var passport = require('passport')
 
 var app = express()
+var path = require('path')
+
 
 app.use(express.static(__dirname + '/client'))
 app.use(express.static(__dirname + '/bower_components'))
@@ -14,6 +17,17 @@ require('./server/config/mongoose')
 require('./server/config/routes')(app)
 
 
-app.listen(8000, function(){
+var server = app.listen(8000, function(){
 	console.log('listening to port 8000....')
+})
+
+var io = require('socket.io').listen(server)
+
+io.sockets.on('connection', function(socket){
+	console.log('working')
+	console.log(socket.id)
+	socket.on('send msg', function(data){
+		console.log(data)
+		io.emit('get msg', {data:data, socket_id: socket.id})
+	})
 })
